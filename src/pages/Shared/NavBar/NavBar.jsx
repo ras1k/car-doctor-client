@@ -25,7 +25,7 @@ const NavBar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl"><img src={logo} className='w-3/4' alt="" /></Link>
+                <Link to="/" className="btn btn-ghost normal-case text-xl"><img src={logo} className='w-1/2' alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

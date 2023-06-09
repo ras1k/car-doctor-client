@@ -45,7 +45,7 @@ const BookService = () => {
             <div className='text-center'>
                 <h3 className='text-5xl font-bold text-orange-600'>{title}</h3>
             </div>
-            <div className="card-body">
+            <div className="card-body md:w-3/4 mx-auto">
                 <form onSubmit={handleBookService}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                         <div className="form-control">
@@ -75,7 +75,7 @@ const BookService = () => {
 
                     </div>
                     <div className="form-control mt-6">
-                        <input type="submit" className='btn btn-block btn-neutral hover:bg-cyan-600' value="Order Confirm" />
+                        <input type="submit" className='btn btn-block btn-neutral hover:bg-orange-600' value="Confirm Order" />
                     </div>
                 </form>
             </div>

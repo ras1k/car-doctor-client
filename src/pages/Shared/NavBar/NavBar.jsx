@@ -18,7 +18,7 @@ const NavBar = () => {
             <Link to='/about'>About</Link>
         </li>
         <li>
-            <a>Career</a>
+            <Link to='/career'>Career</Link>
         </li>
         {user?.email ? <>
             <li><Link to='/bookings'>My Bookings</Link></li>

@@ -25,7 +25,7 @@ const BookService = () => {
             price: price
         }
         console.log(booking);
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://car-doctor-server-f8z5.onrender.com/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

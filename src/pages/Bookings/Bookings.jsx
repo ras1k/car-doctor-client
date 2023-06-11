@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import BookingRow from './BookingRow';
+import { useNavigate } from 'react-router-dom';
 
 const Bookings = () => {
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+    const navigate = useNavigate()
 
-    const url = `http://localhost:5000/bookings/?email=${user?.email}`
+    const url = `https://car-doctor-server-f8z5.onrender.com/bookings/?email=${user?.email}`
     useEffect(() => {
         fetch(url, {
             method: "GET",
@@ -15,13 +17,20 @@ const Bookings = () => {
             }
         })
             .then(res => res.json())
-            .then(data => setBookings(data))
-    }, [url])
+            .then(data => {
+                if(!data.error){
+                    setBookings(data);
+                } else {
+                    navigate('/');
+                }
+                
+            })
+    }, [url, navigate])
 
     const handleDelete = id => {
         const proceed = confirm('Are You SUre?')
         if (proceed) {
-            fetch(`http://localhost:5000/bookings/${id}`, {
+            fetch(`https://car-doctor-server-f8z5.onrender.com/bookings/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -36,7 +45,7 @@ const Bookings = () => {
         }
     }
     const handleBookingConfirm = (id) => {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-f8z5.onrender.com/bookings/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
